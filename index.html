@@ -1,62 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script src="https://alwingulla.com/88/tag.min.js" data-zone="112197" async data-cfasync="false"></script>
-	<meta charset="utf-8">
-	<meta name="keywords"
-		  content="monero, monero ee, monero landing page, monero price, monero solo chance, monero shared solo">
-	<meta name="description" content="Monero.ee">
-	<meta name="author" content="Ionia OÜ">
-	<meta name="google" content="notranslate"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-		  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-		  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-	<title>Monero.ee</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="monero, monero ee, monero price, XMR price, monero solo mining, monero solo pool, monero mining calculator">
+    <meta name="description" content="Monero.ee — Your Monero hub. Live XMR price, solo mining chance calculator, and more.">
+    <meta name="google" content="notranslate"/>
+    <title>Monero.ee — Monero Price, Solo Mining Chance Calculator & More</title>
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#F26822">
+    <link rel="canonical" href="https://monero.ee/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="icon" type="image/png" href="monero-symbol.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://monero.ee/">
+    <meta property="og:title" content="Monero.ee — Monero Price, Solo Mining Chance Calculator & More">
+    <meta property="og:description" content="Your Monero hub. Live XMR price, solo mining chance calculator, and more.">
+    <meta property="og:image" content="https://monero.ee/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Monero.ee — Monero Price, Solo Mining Chance Calculator & More">
+    <meta name="twitter:description" content="Your Monero hub. Live XMR price, solo mining chance calculator, and more.">
+    <meta name="twitter:image" content="https://monero.ee/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Monero.ee",
+        "url": "https://monero.ee/",
+        "description": "Your Monero hub. Live XMR price, solo mining chance calculator, and more."
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.coingecko.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            --orange: #F26822;
+            --orange-dim: rgba(242, 104, 34, 0.08);
+            --orange-border: rgba(242, 104, 34, 0.25);
+            --orange-border-hover: rgba(242, 104, 34, 0.55);
+            --bg: #f9f6f2;
+            --bg-card: #ffffff;
+            --text: #1a1a1a;
+            --muted: #6b7280;
+            --border: #e5e0d8;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse 60% 40% at 15% 55%, rgba(242, 104, 34, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 35% at 85% 15%, rgba(242, 104, 34, 0.04) 0%, transparent 55%);
+        }
+
+        /* ── Header ── */
+        header {
+            text-align: center;
+            padding: 64px 24px 0;
+        }
+
+        .logo {
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        h1 .accent {
+            color: var(--orange);
+        }
+
+        .tagline {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        .divider {
+            width: 48px;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 2px;
+            margin: 28px auto 52px;
+        }
+
+        /* ── About ── */
+        .about {
+            max-width: 900px;
+            margin: 0 auto 32px;
+            padding: 0 24px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--orange-border);
+            border-radius: 16px;
+            padding: 28px 26px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--orange-border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(242, 104, 34, 0.1);
+        }
+
+        .card-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--orange);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 9px 18px;
+            background: var(--orange);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: opacity 0.15s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            padding: 3px 9px;
+            border-radius: 20px;
+            background: rgba(240, 180, 0, 0.1);
+            color: #e8b300;
+            border: 1px solid rgba(240, 180, 0, 0.2);
+        }
+
+        /* ── Price Widget ── */
+        #xmr-price {
+            margin-top: 8px;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .price-change {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .price-change.up {
+            background: rgba(34, 197, 94, 0.12);
+            color: #16a34a;
+        }
+
+        .price-change.down {
+            background: rgba(220, 80, 80, 0.12);
+            color: #f07878;
+        }
+
+        .price-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .price-meta-item label {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+
+        .price-meta-item span {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .price-loading {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card:last-child {
+                grid-column: auto;
+            }
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 20px 24px 32px;
+            border-top: 1px solid var(--border);
+            color: #555f6b;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
-
 <body>
-<div id="Home" class="container mt-4">
-	<div class="container">
-		<h1 style="font-family: ubuntu" class="font-weight-bold">
-			Monero.ee <span class="h6 text-muted font-weight-normal">Because Privacy Matters.</span>
-		</h1>
-	</div>
-	<hr class="my-4">
-	<div class="card-deck m-2">
-		<div class="card bg-light border-dark m-2" style="min-width:250px;">
-			<div class="card-body">
-				<h5 class="card-title">Current Price</h5>
-				<script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
-				<coingecko-coin-ticker-widget  coin-id="monero" currency="usd" locale="en"></coingecko-coin-ticker-widget>
+    <header>
+        <img class="logo" src="monero-symbol.png" alt="Monero logo" width="80" height="80">
+        <h1>Monero<span class="accent">.ee</span></h1>
+        <p class="tagline">Because Privacy Matters. — Live XMR Price &amp; Solo Mining Tools</p>
+        <div class="divider"></div>
+    </header>
 
-			</div>
-		</div>
-		<div class="card bg-light border-dark m-2" style="min-width:250px;">
-			<div class="card-body">
-				<h5 class="card-title">Solo Mining Chance Calculator</h5>
-				<p class="card-text text-justify">DONE! Solochance.com is a great service, but it does not support Monero. So we developed an alternative that supports, visit <a href="https://solochance.org" target="_blank" rel="noopener noreferrer">SoloChance.org</a>!
-				</p>
-			</div>
-		</div>
-		<div class="card bg-light border-dark m-2" style="min-width:250px;">
-			<div class="card-body">
-				<h5 class="card-title">Shared Solo Pool</h5>
-				<p class="card-text text-justify">On development.</p>
-			</div>
-		</div>
-	</div>
-</div>
+    <main>
+    <p class="about">Monero (XMR) is a privacy-focused cryptocurrency that keeps your transactions untraceable and your identity protected. Unlike Bitcoin, Monero uses ring signatures, stealth addresses, and RingCT to ensure that every transaction is confidential by default — not optional.</p>
+    <div class="cards">
+        <div class="card">
+            <h2 class="card-label">Current Price</h2>
+            <div id="xmr-price">
+                <p class="price-loading">Loading…</p>
+            </div>
+        </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-		crossorigin="anonymous"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+        <div class="card">
+            <h2 class="card-label">Solo Mining Chance Calculator</h2>
+            <p>Solochance.com is a great service, but it does not support Monero. So we developed an alternative that supports it.</p>
+            <a href="https://solochance.org" target="_blank" rel="noopener noreferrer" class="btn">Visit SoloChance.org →</a>
+        </div>
+
+        <div class="card">
+            <h2 class="card-label">Solo Pool</h2>
+            <p>A solo mining pool for Monero is on the way — mine on your own with full block rewards, backed by reliable pool infrastructure.</p>
+            <span class="badge">Coming Soon</span>
+        </div>
+    </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Monero.ee
+    </footer>
+
+    <script>
+        function formatLarge(n) {
+            if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+            if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+            return '$' + n.toLocaleString();
+        }
+
+        async function fetchXMRPrice() {
+            try {
+                const res = await fetch(
+                    'https://api.coingecko.com/api/v3/simple/price' +
+                    '?ids=monero&vs_currencies=usd' +
+                    '&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true'
+                );
+                const data = await res.json();
+                const xmr = data['monero'];
+                const price = xmr.usd.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                });
+                const change = xmr.usd_24h_change;
+                const changeStr = (change >= 0 ? '▲ +' : '▼ ') + change.toFixed(2) + '%';
+                const changeClass = change >= 0 ? 'up' : 'down';
+
+                document.getElementById('xmr-price').innerHTML = `
+                    <div class="price-amount">${price}</div>
+                    <span class="price-change ${changeClass}">${changeStr} 24h</span>
+                    <div class="price-meta">
+                        <div class="price-meta-item">
+                            <label>Market Cap</label>
+                            <span>${formatLarge(xmr.usd_market_cap)}</span>
+                        </div>
+                        <div class="price-meta-item">
+                            <label>24h Volume</label>
+                            <span>${formatLarge(xmr.usd_24h_vol)}</span>
+                        </div>
+                    </div>
+                `;
+            } catch (e) {
+                document.getElementById('xmr-price').innerHTML =
+                    '<p class="price-loading">Unable to load price.</p>';
+            }
+        }
+
+        fetchXMRPrice();
+    </script>
 </body>
-
 </html>
