@@ -1,2 +1,2 @@
 # monero-ee
-Monero.ee For Sale
+Monero.ee
